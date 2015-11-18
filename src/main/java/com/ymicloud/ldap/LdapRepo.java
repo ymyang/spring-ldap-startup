@@ -243,14 +243,14 @@ public class LdapRepo {
 			} else if (LdapType.Domino.name().equalsIgnoreCase(config.getLdapType())) {
 				user.setUserName(context.getStringAttribute("uid"));
 				user.setRealName(context.getStringAttribute("middleinitial"));
-				if (StringUtils.isEmpty(user.getUserName())) {
+				if (StringUtils.isEmpty(user.getRealName())) {
 					user.setRealName(context.getStringAttribute("description"));
 				}
 				user.setJobTitle(context.getStringAttribute("title"));
 			} else {
 				user.setUserName(context.getStringAttribute("uid"));
 				user.setRealName(context.getStringAttribute("displayname"));
-				if (StringUtils.isEmpty(user.getUserName())) {
+				if (StringUtils.isEmpty(user.getRealName())) {
 					user.setRealName(context.getStringAttribute("cn"));
 				}
 			}
